@@ -1,14 +1,18 @@
 package com.intellekta;
 
+import java.util.List;
+
 public class Viewer {
     private String nickname;
     private int age;
     private int amountCinemas;
+    private List<Cinema> cinemas;
 
-    public Viewer(String nickname, int age, int amountCinemas) {
+    public Viewer(String nickname, int age, int amountCinemas, List<Cinema> cinemas) {
         this.nickname = nickname;
         this.age = age;
-        this.amountCinemas = amountCinemas;
+        this.amountCinemas = cinemas.size();
+        this.cinemas = cinemas;
     }
 
     public String getNickname() {
@@ -31,7 +35,16 @@ public class Viewer {
         return amountCinemas;
     }
 
-    public void setAmountCinemas(int amountCinemas) {
-        this.amountCinemas = amountCinemas;
+    public void addViewedCinema(Cinema cinema) {
+        cinemas.add(cinema);
+        amountCinemas = cinemas.size();
+    }
+
+    public List<Cinema> getCinemas() {
+        return cinemas;
+    }
+
+    public void setCinemas(List<Cinema> cinemas) {
+        this.cinemas = cinemas;
     }
 }
